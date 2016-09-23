@@ -10,6 +10,7 @@ RUN apt-get -qq update \
   && wget -q https://github.com/ethereum/solidity/releases/download/v${VERSION}/solidity-ubuntu-trusty.zip \
   && unzip solidity-ubuntu-trusty.zip \
   && sudo mv libsoldevcore.so libsolevmasm.so libsolidity.so /usr/lib \
-  && sudo mv lllc solc /usr/bin
+  && sudo mv lllc solc /usr/bin \
+  && umask 000
 
 ENTRYPOINT ["/usr/bin/solc"]
